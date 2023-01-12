@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Formular from "./components/Formular";
+import Formular from "./components/beitrag/Formular";
 import Adminseite from "./pages/Adminseite";
 import Detailseite from "./pages/Detailseite";
 

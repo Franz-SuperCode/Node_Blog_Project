@@ -19,6 +19,8 @@ const PORT = 9999;
 // Die Konfiguration gibt an, dass die hochgeladenen Bilder im Ordner "images" gespeichert werden sollen. dest = destination (Ort wo die Bilder abgelegt werden sollen)
 const upload = multer({ dest: './public' }) // 
 
+
+
 // Jeder Request wird im "dev"-Format geloggt mit morgan
 app.use(morgan('dev'));
 app.use(cors());
@@ -84,3 +86,9 @@ app.get('/api/posts/:id', (req, res) => {
     res.json(selectedPost);
 })
 
+app.delete('/api/posts/:id', (req, res) => {
+    const key = req.params.id;
+    posts.splice(key, 1);
+    res.json(posts);
+    // res.status(200).end()
+});

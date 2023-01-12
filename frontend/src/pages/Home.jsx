@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Beitrag from "../components/beitrag/Beitrag.jsx"
+import Navbar from "../components/navbar/Navbar.jsx";
 
 // import Adminseite from "./Adminseite.jsx";
 
@@ -9,6 +10,9 @@ import Beitrag from "../components/beitrag/Beitrag.jsx"
 // Man holt sich die Daten aus dem selbst gebauten Server und speichert sie hier wie gewohnt.
 // Danach übergibt man sie der Komponente in Form von Props wie gewohnt
 function Home() {
+
+
+
     //Hole die Daten vom eigenen Server
     const [posts, setPosts] = useState([]);
     useEffect(() => {
@@ -23,9 +27,10 @@ function Home() {
     return (
 
         <>
+            <Navbar />
             <section>
-                <img src="https://images.unsplash.com/photo-1672608322232-be8fbf473789?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" alt="headerBild" />
-                <h1>Begrüßung</h1>
+                <h1>Willkommen</h1>
+                <p>Bitte auf der Adminseite Beiträge eintragen. Diese werden hier angezeigt</p>
             </section>
             {/* Die Daten vom Server werden der Komponente übergeben */}
             {posts.map((post, index) => {
@@ -36,6 +41,7 @@ function Home() {
                         postPic={post.path}
                         title={post.title}
                         text={post.text}
+                        setArticles={setPosts}
                     />
 
                 )
